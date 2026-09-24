@@ -572,8 +572,52 @@ button, input, select, textarea { font: inherit; }
 @media (max-width: 900px) {
   .container { width: min(calc(100% - 28px), 760px); }
   .desktop-nav, .nav-call, .nav-book { display: none; }
-  .nav-shell { height: 70px; }
-  .menu-button { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); color: var(--text); }
+
+  /* Mobile navbar alignment */
+  .nav-shell {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex: 0 0 auto;
+  }
+
+  .theme-toggle {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    flex: 0 0 42px;
+  }
+
+  .menu-button {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+    flex: 0 0 42px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: var(--surface);
+    color: var(--text);
+  }
   .hero-v2 { min-height: auto; padding-top: 70px; }
   .hero-v2-grid { grid-template-columns: 1fr; min-height: auto; padding-block: 62px 30px; }
   .hero-v2-copy { max-width: 720px; }
@@ -600,6 +644,15 @@ button, input, select, textarea { font: inherit; }
   .section { padding: 76px 0; }
   .brand-copy { display: none; }
   .brand-mark { width: 46px; height: 46px; }
+  .nav-actions { margin-left: auto; gap: 7px; }
+  .theme-toggle,
+  .menu-button {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    min-height: 42px;
+    padding: 0;
+  }
   .theme-toggle { width: 42px; padding: 0; }
   .theme-toggle span { display: none; }
   .hero-v2-grid { padding-top: 45px; }
