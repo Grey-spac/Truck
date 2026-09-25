@@ -733,3 +733,36 @@ button, input, select, textarea { font: inherit; }
 .field:focus { border-color: color-mix(in srgb, var(--yellow) 75%, var(--line)); }
 .field::placeholder { color: color-mix(in srgb, var(--muted) 75%, transparent); }
 select.field option { background: var(--surface); color: var(--text); }
+
+/* CUSTOM BOOKING DATE PICKER */
+.booking-date-picker{position:relative;width:100%}
+.booking-date-trigger{width:100%;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px;border:1px solid var(--line);border-radius:12px;outline:none;background:var(--field);color:var(--text);cursor:pointer;text-align:left;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease}
+.booking-date-trigger:hover{border-color:color-mix(in srgb,var(--yellow) 45%,var(--line));background:color-mix(in srgb,var(--field) 88%,var(--surface-2))}
+.booking-date-trigger:focus-visible{border-color:color-mix(in srgb,var(--yellow) 75%,var(--line));box-shadow:0 0 0 3px color-mix(in srgb,var(--yellow) 14%,transparent)}
+.booking-date-trigger .date-placeholder{color:color-mix(in srgb,var(--muted) 75%,transparent)}
+.booking-date-trigger .date-value{color:var(--text)}
+.booking-date-trigger svg{flex:0 0 auto;color:var(--muted);transition:color .2s ease,transform .2s ease}
+.booking-date-trigger:hover svg{color:var(--yellow)}
+.booking-calendar{position:absolute;left:0;top:calc(100% + 9px);z-index:50;width:min(320px,calc(100vw - 44px));padding:14px;border:1px solid var(--line-strong);border-radius:20px;background:color-mix(in srgb,var(--surface) 94%,transparent);box-shadow:0 28px 70px rgba(0,0,0,.42),0 8px 28px rgba(0,0,0,.22);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);transform-origin:top left;animation:bookingCalendarIn .18s cubic-bezier(.2,.8,.2,1)}
+@keyframes bookingCalendarIn{from{opacity:0;transform:translateY(-7px) scale(.965)}to{opacity:1;transform:translateY(0) scale(1)}}
+.booking-calendar-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.booking-calendar-month{min-width:0;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:850;letter-spacing:-.01em}
+.booking-calendar-nav{display:flex;align-items:center;gap:4px}
+.booking-calendar-nav button{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;background:var(--field);color:var(--text);cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease}
+.booking-calendar-nav button:hover:not(:disabled){transform:translateY(-1px);border-color:color-mix(in srgb,var(--yellow) 45%,var(--line));background:color-mix(in srgb,var(--yellow) 9%,var(--field));color:var(--yellow)}
+.booking-calendar-nav button:disabled{opacity:.3;cursor:not-allowed}
+.booking-calendar-weekdays,.booking-calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.booking-calendar-weekdays{margin-bottom:4px}
+.booking-calendar-weekdays span{display:grid;place-items:center;min-height:28px;color:var(--muted);font-size:9px;font-weight:850;text-transform:uppercase}
+.booking-calendar-day{min-width:0;aspect-ratio:1;display:grid;place-items:center;padding:0;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--text);font-size:11px;font-weight:750;cursor:pointer;transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
+.booking-calendar-day:hover:not(:disabled){transform:translateY(-1px) scale(1.03);border-color:color-mix(in srgb,var(--yellow) 38%,var(--line));background:color-mix(in srgb,var(--yellow) 10%,transparent)}
+.booking-calendar-day.is-other-month{color:color-mix(in srgb,var(--muted) 42%,transparent)}
+.booking-calendar-day.is-today{border-color:color-mix(in srgb,var(--yellow) 35%,transparent)}
+.booking-calendar-day.is-selected{border-color:var(--yellow);background:var(--yellow);color:#080b0e;box-shadow:0 6px 18px color-mix(in srgb,var(--yellow) 20%,transparent);transform:scale(1.04)}
+.booking-calendar-day:disabled{cursor:not-allowed;opacity:.28}
+.booking-calendar-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line)}
+.booking-calendar-footer button{border:0;padding:5px 7px;border-radius:8px;background:transparent;color:var(--muted);font-size:10px;font-weight:850;cursor:pointer;transition:background .18s ease,color .18s ease,transform .18s ease}
+.booking-calendar-footer button:hover{color:var(--text);background:var(--field);transform:translateY(-1px)}
+.booking-calendar-footer .today-action{color:var(--yellow)}
+@media(max-width:560px){.booking-calendar{left:50%;width:min(320px,calc(100vw - 32px));transform-origin:top center;transform:translateX(-50%)}@keyframes bookingCalendarIn{from{opacity:0;transform:translateX(-50%) translateY(-7px) scale(.965)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}}
+@media(prefers-reduced-motion:reduce){.booking-calendar{animation:none}}
