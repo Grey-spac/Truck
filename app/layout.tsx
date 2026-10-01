@@ -22,23 +22,28 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
-  // Google Search Console + Microsoft Bing Webmaster verification
+  // Google Search Console + Microsoft Bing Webmaster + Yandex verification
   verification: {
     google: "uBYJHR41QrGiVQ1VR-iXbrfdO_dIfCRmfxrDdmcrdKQ",
 
     other: {
       "msvalidate.01":
         "31D786D61FBD2BDFED13823755947300",
+
+      yandex: "50a2663caf42a1f3",
     },
   },
 
   openGraph: {
     title: `${site.name} | Truck Repair & Truck Parts in Jhansi`,
+
     description:
       "Truck repair, truck mechanic service, truck parts, heavy vehicle repair and truck service in Jhansi.",
+
     type: "website",
     locale: "en_IN",
     siteName: site.name,
+
     images: [
       {
         url: "/images/truck-care-hero.png",
@@ -51,9 +56,12 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
+
     title: `${site.name} | Truck Repair in Jhansi`,
+
     description:
       "Truck repair, truck parts and heavy vehicle service in Jhansi.",
+
     images: ["/images/truck-care-hero.png"],
   },
 
@@ -64,6 +72,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
+
     apple: [
       {
         url: "/apple-touch-icon.png",
@@ -87,7 +96,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
