@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { site } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://truckservice.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,9 +22,14 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
-  // Google Search Console verification
+  // Google Search Console + Microsoft Bing Webmaster verification
   verification: {
     google: "uBYJHR41QrGiVQ1VR-iXbrfdO_dIfCRmfxrDdmcrdKQ",
+
+    other: {
+      "msvalidate.01":
+        "31D786D61FBD2BDFED13823755947300",
+    },
   },
 
   openGraph: {
